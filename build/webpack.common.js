@@ -1,6 +1,7 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const postcssPresetEnv = require("postcss-preset-env");
 
 // __dirname： 获得当前执行文件所在目录的完整目录名
 // process.cwd() ：获得当前执行node命令时候的文件夹目录名
@@ -19,18 +20,62 @@ module.exports = {
         options: { presets: ["@babel/env"] },
       },
       {
+        //antd样式处理
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        // exclude: /src/,
+        include: /node_modules/,
+        // include: [/[\\/]node_modules[\\/].*antd/], // 针对 antd不开启CSS Modules处理
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: "[path][name]__[local]--[hash:base64:5]",
+            },
+          },
+          // "postcss-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: () => [
+                postcssPresetEnv(),
+                /* pluginOptions */
+                // {
+                //   autoprefixer: {
+                //     flexbox: "no-2009",
+                //   },
+                //   // stage: 3,
+                // }
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.less$/,
+        exclude: /node_modules/,
         use: [
-          {
-            loader: "style-loader", // creates style nodes from JS strings
-          },
-          {
-            loader: "css-loader", // translates CSS into CommonJS
-          },
+          // {
+          //   loader: "style-loader", // creates style nodes from JS strings
+          // },
+          // {
+          //   loader: "css-loader", // translates CSS into CommonJS
+          // },
           {
             loader: "less-loader", // compiles Less to CSS
           },

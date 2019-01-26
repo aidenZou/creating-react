@@ -42,6 +42,8 @@
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.5.0",
     "prettier": "^1.16.1",
     "react-hot-loader": "^4.6.3",
     "style-loader": "^0.23.1",
@@ -54,6 +56,8 @@
     ">0.2%",
     "not dead",
     "not ie <= 11",
-    "not op_mini all"
+    "Android >= 4",
+    "ChromeAndroid >= 46",
+    "iOS >= 8"
   ]
 }

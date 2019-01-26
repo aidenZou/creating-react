@@ -3,7 +3,7 @@ import { observer, PropTypes } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 import { hot } from "react-hot-loader"; // eslint-disable-line
 import { Button, Icon } from "antd";
-import "./App.css";
+import styles from "./App.css";
 
 const ButtonGroup = Button.Group;
 
@@ -17,7 +17,7 @@ class App extends Component {
         <h1> Hello, World!</h1>
         <p>
           Counter:
-          <span className={store.isOdd ? "Counter-odd" : "Counter-even"}>{store.count}</span>
+          <span className={store.isOdd ? styles.odd : styles.even}>{store.count}</span>
         </p>
         <div>
           <ButtonGroup>
