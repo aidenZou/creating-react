@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { observer, PropTypes } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 import { hot } from "react-hot-loader"; // eslint-disable-line
+import { Button, Icon } from "antd";
 import "./App.css";
+
+const ButtonGroup = Button.Group;
 
 @observer
 class App extends Component {
@@ -16,14 +19,18 @@ class App extends Component {
           Counter:
           <span className={store.isOdd ? "Counter-odd" : "Counter-even"}>{store.count}</span>
         </p>
-        <p>
-          <button type="button" onClick={() => store.increment(2)}>
-            +
-          </button>
-          <button type="button" onClick={() => store.decrement()}>
-            -
-          </button>
-        </p>
+        <div>
+          <ButtonGroup>
+            <Button type="primary" onClick={() => store.increment(1)}>
+              <Icon type="left" />
+              increment
+            </Button>
+            <Button type="primary" onClick={() => store.decrement()}>
+              decrement
+              <Icon type="right" />
+            </Button>
+          </ButtonGroup>
+        </div>
         <DevTools />
       </div>
     );

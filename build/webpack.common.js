@@ -8,7 +8,7 @@ const rootPath = process.cwd();
 
 module.exports = {
   entry: {
-    app: path.resolve(rootPath, "src/index")
+    app: path.resolve(rootPath, "src/index"),
   },
   module: {
     rules: [
@@ -16,13 +16,27 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        options: { presets: ["@babel/env"] },
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader", // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader", // translates CSS into CommonJS
+          },
+          {
+            loader: "less-loader", // compiles Less to CSS
+          },
+        ],
+      },
+    ],
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   plugins: [
@@ -32,14 +46,14 @@ module.exports = {
       meta: {
         viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
         // Will generate: <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        "theme-color": "#4285f4"
+        "theme-color": "#4285f4",
         // Will generate: <meta name="theme-color" content="#4285f4">
       },
-      template: path.resolve(__dirname, "template/index.template.html")
-    })
+      template: path.resolve(__dirname, "template/index.template.html"),
+    }),
   ],
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(rootPath, "dist")
-  }
+    path: path.resolve(rootPath, "dist"),
+  },
 };
