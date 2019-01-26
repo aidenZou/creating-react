@@ -4,12 +4,17 @@
   "description": "",
   "private": true,
   "scripts": {
+    "start": "webpack-dev-server --mode development --port=3000",
     "build": "npx webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
