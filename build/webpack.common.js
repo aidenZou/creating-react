@@ -8,7 +8,7 @@ const rootPath = process.cwd();
 
 module.exports = {
   entry: {
-    app: path.resolve(rootPath, "src/index.js")
+    app: path.resolve(rootPath, "src/index")
   },
   module: {
     rules: [

@@ -10,4 +10,7 @@
   - [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
   - [clean-webpack-plugin](https://github.com/johnagan/clean-webpack-plugin)
 
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+
 - [Creating a React App… From Scratch.](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658)
