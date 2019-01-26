@@ -1,5 +1,8 @@
 # 从头开始设置自己的 React 工具链
 
+- [React](https://reactjs.org)
+- [Mobx](https://cn.mobx.js.org/)
+
 - [Babel](https://babeljs.io/)
 
   - [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react)
