@@ -9,7 +9,7 @@ const rootPath = process.cwd();
 
 module.exports = {
   entry: {
-    app: path.resolve(rootPath, "src/index"),
+    app: ["@babel/polyfill", path.resolve(rootPath, "src/index")],
   },
   module: {
     rules: [

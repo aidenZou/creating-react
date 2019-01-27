@@ -10,6 +10,7 @@
         "libraryDirectory": "es",
         "style": "css"
       }
-    ]
+    ],
+    ["@babel/plugin-proposal-async-generator-functions"]
   ]
 }

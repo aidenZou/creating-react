@@ -1,7 +1,7 @@
 # 从头开始设置自己的 React 工具链
 
 - [React](https://reactjs.org)
-- [Mobx](https://cn.mobx.js.org/)
+- [Mobx](https://mobx.js.org/)
 - [Ant Design](https://ant.design/index-cn)
 
 - [Babel](https://babeljs.io/)

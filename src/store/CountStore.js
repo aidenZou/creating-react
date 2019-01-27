@@ -1,21 +1,25 @@
-import { observable, computed } from "mobx";
+import { observable, computed, action } from "mobx";
 
-class Store {
+class CountStore {
   @observable count = 0;
 
-  // constructor() {}
+  constructor(rootStore) {
+    this.rootStore = rootStore;
+  }
 
   @computed get isOdd() {
     return this.count % 2 === 1;
   }
 
+  @action
   increment(value = 1) {
     this.count += value;
   }
 
+  @action
   decrement(value = 1) {
     this.count -= value;
   }
 }
 
-export default Store;
+export default CountStore;

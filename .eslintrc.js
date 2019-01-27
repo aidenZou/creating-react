@@ -9,6 +9,8 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     quotes: [1, "double"], // 引号类型
+    "import/prefer-default-export": 1,
     "react/prefer-stateless-function": 0,
+    "react/prop-types": 0,
   },
 };
