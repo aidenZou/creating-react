@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssPresetEnv = require("postcss-preset-env");
@@ -92,6 +93,20 @@ module.exports = {
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   plugins: [
+    // new webpack.DefinePlugin({
+    //   PRODUCTION: JSON.stringify(true),
+    //   VERSION: JSON.stringify("5fa3b9"),
+    //   BROWSER_SUPPORTS_HTML5: true,
+    //   TWO: "1+1",
+    //   "typeof window": JSON.stringify("object"),
+    //   "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    // }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV), // '"development"'
+        BASE_URL: '"/"',
+      },
+    }),
     new CleanWebpackPlugin(["dist"], { root: rootPath }),
     new HtmlWebpackPlugin({
       title: "My App",
@@ -107,5 +122,6 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(rootPath, "dist"),
+    // publicPatch: "cdn.com", // 指定存放JS文件的CDN地址
   },
 };

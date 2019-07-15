@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { inject, observer, PropTypes } from "mobx-react";
 import DevTools from "mobx-react-devtools";
-import { hot } from "react-hot-loader"; // eslint-disable-line
+import { hot } from "react-hot-loader/root"; // eslint-disable-line
 import { Row, Button, Icon } from "antd";
 import styles from "./App.css";
 
@@ -57,4 +57,5 @@ class App extends Component {
 
 // export default observer(App);
 // export default hot(module)(observer(App));
-export default hot(module)(App);
+export default hot(App);
+// export default App;
